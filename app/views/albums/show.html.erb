@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @album.name %>
+</p>
+
+<div id="photos">
+  <% @album.photos.each do |photo| %>
+    <div>
+      <%= image_tag photo.image.url, width: 400 %>
+    </div>
+  <% end %>
+</div>
+<%= render partial: "photos/form", locals: {photo: Photo.new} %>
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
